@@ -93,12 +93,20 @@ if (alunos != null && !alunos.isEmpty()) {
       <td><a href="#">Alterar</a></td>
       <td><a href="#">Excluir</a></td>
     </tr>
+  
 <%
   }
 }
 %>
   </tbody>
-
+  
+  <tr>
+     
+      <th><%= a.getMatricula()%></th>
+      <th><%= a.getNome()%></th>
+       <th><%= a.getFone()%></th>
+       <th><%= a.geCpf()%></th>
+  </tr>
 </table>
             <br>
           </div>
