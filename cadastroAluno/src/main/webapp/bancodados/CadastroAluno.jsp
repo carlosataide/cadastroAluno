@@ -104,8 +104,10 @@ if (alunos != null && !alunos.isEmpty()) {
      
       <th><%= a.getMatricula()%></th>
       <th><%= a.getNome()%></th>
-       <th><%= a.getFone()%></th>
-       <th><%= a.geCpf()%></th>
+      <th><%= a.geCpf()%></th>
+      <th><a href="AlterarAluno?telefone=<%= a.getFone()%>">Aterar</a></th>
+      <th><a href="DeletarAluno?telefone=<%= a.getFone()%>">Excluir</a></th>
+
   </tr>
 </table>
             <br>
