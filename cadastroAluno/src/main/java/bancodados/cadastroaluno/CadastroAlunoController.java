@@ -41,6 +41,10 @@ public class CadastroAlunoController extends HttpServlet {
     
     req.setAttribute("aluno", aluno); //Passando um objeto para o JSP.
     
+    List<Aluno> alunos = Aluno.listar();
+    req.setAttribute("alunos", alunos); //Passando um objeto para o JSP.
+
+    
     //Chamar o JSP apenas para mostrar o resultado.
     req.getRequestDispatcher("CadastroAlunoView.jsp").forward(req, resp);
   }
