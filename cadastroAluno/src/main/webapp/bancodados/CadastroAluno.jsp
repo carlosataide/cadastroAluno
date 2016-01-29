@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="bancodados.cadastroaluno.Aluno"%>
 <!doctype html>
 <html>
 <head>
@@ -109,7 +111,7 @@ if (alunos != null && !alunos.isEmpty()) {
      
       <th><%= a.getMatricula()%></th>
       <th><%= a.getNome()%></th>
-      <th><%= a.geCpf()%></th>
+      <th><%= a.getCpf()%></th>
       <th><a href="AlterarAluno?telefone=<%= a.getFone()%>">Aterar</a></th>
       <th><a href="DeletarAluno?telefone=<%= a.getFone()%>">Excluir</a></th>
   </tr>
