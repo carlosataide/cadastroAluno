@@ -30,7 +30,7 @@
             <form role="form">
               <fieldset>
                 <div class="form-group">
-                  <input class="form-control" placeholder="MatrÌcula" name="matricula"
+                  <input class="form-control" placeholder="Matr√≠cula" name="matricula"
                     type="text" value="${param.matricula}">
                 </div>
                 <div class="form-group">
@@ -50,23 +50,56 @@
             </form>
             <br>
             <%
-            //Obtendo a vari·vel definida no servlet.
+            //Obtendo a vari√°vel definida no servlet.
             bancodados.cadastroaluno.Aluno aluno = (bancodados.cadastroaluno.Aluno) request.getAttribute("aluno");
-            //Se par‚metros inv·lidos, ...
+            //Se par√¢metros inv√°lidos, ...
             if (aluno.getMatricula() == null || aluno.getMatricula().trim().equals("")) {
 %>
 <!-- Aqui posso colocar HTML. -->
-<div class="alert alert-danger" role="alert">Informe a MatrÌcula.</div>
+<div class="alert alert-danger" role="alert">Informe a Matr√≠cula.</div>
 <%
             } else {
               %>
 <!-- Aqui posso colocar HTML. -->
 <div class="alert alert-success" role="alert">
-MatrÌcula: <%=aluno.getMatricula()%>
+Matr√≠cula: <%=aluno.getMatricula()%>
 </div>
               <%
             }
             %>
+            
+            <table class="table">
+  <thead>
+    <tr>
+      <th>Matr√≠cula</th>
+      <th>Nome</th>
+      <th>Fone</th>
+      <th>CPF</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%
+List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
+if (alunos != null && !alunos.isEmpty()) {
+  for (Aluno a:alunos) {
+%>
+    <tr>
+      <th><%=a.getMatricula()%></th>
+      <td><%=a.getNome()%></td>
+      <td><%=a.getFone()%></td>
+      <td><%=a.getCpf()%></td>
+      <td><a href="#">Alterar</a></td>
+      <td><a href="#">Excluir</a></td>
+    </tr>
+<%
+  }
+}
+%>
+  </tbody>
+
+</table>
             <br>
           </div>
         </div>
