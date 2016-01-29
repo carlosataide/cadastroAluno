@@ -47,4 +47,54 @@ public class Aluno {
       throw new RuntimeException(e);
     }
   }
+  
+  public void excluir() {
+    try {
+      //Obtém a conexão.
+      String url = "jdbc:derby:C:\\banco-de-teste;create=true";
+      Connection conn = DriverManager.getConnection(url);
+      //Cria a sentença SQL.
+      String sql = "insert into aluno (matricula, nome, fone, cpf) values (?, ?, ?, ?)";
+      //Obtém referência para uma sentença SQL.
+      PreparedStatement prepareStatement = conn.prepareStatement(sql);
+      prepareStatement.setString(1, matricula);
+      prepareStatement.setString(2, nome);
+      prepareStatement.setString(3, fone);
+      prepareStatement.setString(4, cpf);
+      //Executa a instrução SQL.
+      prepareStatement.executeUpdate();
+      //Fecha a sentença.
+      prepareStatement.close();
+      //Fecha a conexão.
+      conn.close();
+    } catch(Throwable e) {
+      //Para repassar a exceção para o container tratar.
+      throw new RuntimeException(e);
+    }
+  }
+  
+   public void alterar() {
+    try {
+      //Obtém a conexão.
+      String url = "jdbc:derby:C:\\banco-de-teste;create=true";
+      Connection conn = DriverManager.getConnection(url);
+      //Cria a sentença SQL.
+      String sql = "insert into aluno (matricula, nome, fone, cpf) values (?, ?, ?, ?)";
+      //Obtém referência para uma sentença SQL.
+      PreparedStatement prepareStatement = conn.prepareStatement(sql);
+      prepareStatement.setString(1, matricula);
+      prepareStatement.setString(2, nome);
+      prepareStatement.setString(3, fone);
+      prepareStatement.setString(4, cpf);
+      //Executa a instrução SQL.
+      prepareStatement.executeUpdate();
+      //Fecha a sentença.
+      prepareStatement.close();
+      //Fecha a conexão.
+      conn.close();
+    } catch(Throwable e) {
+      //Para repassar a exceção para o container tratar.
+      throw new RuntimeException(e);
+    }
+  }
 }
