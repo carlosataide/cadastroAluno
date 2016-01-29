@@ -103,7 +103,7 @@ if (alunos != null && !alunos.isEmpty()) {
   </tbody>
   
   <%
-       List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
+       //List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
 if (alunos != null && !alunos.isEmpty()) {
   for (Aluno a:alunos) { 
   %>
