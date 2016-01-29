@@ -100,6 +100,11 @@ if (alunos != null && !alunos.isEmpty()) {
 %>
   </tbody>
   
+  <%
+       List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
+if (alunos != null && !alunos.isEmpty()) {
+  for (Aluno a:alunos) { 
+  %>
   <tr>
      
       <th><%= a.getMatricula()%></th>
@@ -107,8 +112,11 @@ if (alunos != null && !alunos.isEmpty()) {
       <th><%= a.geCpf()%></th>
       <th><a href="AlterarAluno?telefone=<%= a.getFone()%>">Aterar</a></th>
       <th><a href="DeletarAluno?telefone=<%= a.getFone()%>">Excluir</a></th>
-
   </tr>
+  <%
+        }
+}
+  %>
 </table>
             <br>
           </div>
