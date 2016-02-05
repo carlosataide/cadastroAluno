@@ -51,7 +51,7 @@ public class Aluno {
     }
   }
   
-  public void excluir() {
+  public void excluir(String matricula) {
     try {
       //Obtém a conexão.
       String url = "jdbc:derby:C:\\banco-de-teste;create=true";
@@ -108,7 +108,7 @@ public class Aluno {
       return alunos;
   }
   
-   public void alterar() {
+   public void alterar(String matricula, String nome, String fone, String cpf) {
     try {
       //Obtém a conexão.
       String url = "jdbc:derby:C:\\banco-de-teste;create=true";
@@ -132,4 +132,5 @@ public class Aluno {
       throw new RuntimeException(e);
     }
   }
+
 }
