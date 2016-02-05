@@ -58,7 +58,7 @@
             if (aluno.getMatricula() == null || aluno.getMatricula().trim().equals("")) {
 %>
 <!-- Aqui posso colocar HTML. -->
-<div class="alert alert-danger" role="alert">Informe a Matrícula.</div>
+<div class="alert alert-danger" role="alert">Informe a Matricula.</div>
 <%
             } else {
               %>
@@ -73,7 +73,7 @@ Matrícula: <%=aluno.getMatricula()%>
             <table class="table">
   <thead>
     <tr>
-      <th>Matrícula</th>
+      <th>Matricula</th>
       <th>Nome</th>
       <th>Fone</th>
       <th>CPF</th>
@@ -82,43 +82,26 @@ Matrícula: <%=aluno.getMatricula()%>
     </tr>
   </thead>
   <tbody>
-<%
-List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
-if (alunos != null && !alunos.isEmpty()) {
-  for (Aluno a:alunos) {
-%>
-    <tr>
-      <th><%=a.getMatricula()%></th>
-      <td><%=a.getNome()%></td>
-      <td><%=a.getFone()%></td>
-      <td><%=a.getCpf()%></td>
-      <td><a href="#">Alterar</a></td>
-      <td><a href="#">Excluir</a></td>
-    </tr>
-  
-<%
-  }
-}
-%>
-  </tbody>
-  
-  <%
-       //List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
-if (alunos != null && !alunos.isEmpty()) {
-  for (Aluno a:alunos) { 
-  %>
-  <tr>
-     
-      <th><%= a.getMatricula()%></th>
-      <th><%= a.getNome()%></th>
-      <th><%= a.getCpf()%></th>
-      <th><a href="AlterarAluno?telefone=<%= a.getFone()%>">Aterar</a></th>
-      <th><a href="DeletarAluno?telefone=<%= a.getFone()%>">Excluir</a></th>
-  </tr>
-  <%
+        <%
+            List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
+            if (alunos != null && !alunos.isEmpty()) {
+              for (Aluno a:alunos) {
+        %>
+            <tr>
+              <th><%=a.getMatricula()%></th>
+              <td><%=a.getNome()%></td>
+              <td><%=a.getFone()%></td>
+              <td><%=a.getCpf()%></td>
+              <td><a href="AlterarAluno?telefone=<%=a.getMatricula()%>&nome=<%=a.getNome()%>&fone=<%=a.getFone()%>&cpf=<%=a.getCpf()%>"</a></td>
+              <td><a href="DeletarAluno?telefone=<%= a.getMatricula()%>">Excluir</a></td>
+            </tr>
+
+        <%
+          }
         }
-}
-  %>
+        %>
+  </tbody> 
+  
 </table>
             <br>
           </div>

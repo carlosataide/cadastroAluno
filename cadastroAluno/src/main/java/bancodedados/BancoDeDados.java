@@ -42,66 +42,66 @@ public static void main(String[] args) throws SQLException {
   }
 
   private static void listarAlunos(Connection conn) throws SQLException {
-    String sql = "select * from aluno order by matricula";
-    //Obtém referência para uma sentença SQL.
-    PreparedStatement prepareStatement = conn.prepareStatement(sql);
-    //Executa a instrução SQL.
-    ResultSet rs = prepareStatement.executeQuery();
-    while (rs.next()) {
-      int matricula = rs.getInt("matricula");
-      String nome = rs.getString("nome");
+        String sql = "select * from aluno order by matricula";
+        //Obtém referência para uma sentença SQL.
+        PreparedStatement prepareStatement = conn.prepareStatement(sql);
+        //Executa a instrução SQL.
+        ResultSet rs = prepareStatement.executeQuery();
+        while (rs.next()) {
+          int matricula = rs.getInt("matricula");
+          String nome = rs.getString("nome");
 
-      System.out.println("Matrícula: " + matricula);
-      System.out.println("Nome: " + nome);
-      System.out.println();
-    }
-    rs.close();
-    prepareStatement.close();
+          System.out.println("Matrícula: " + matricula);
+          System.out.println("Nome: " + nome);
+          System.out.println();
+        }
+        rs.close();
+        prepareStatement.close();
   }
 
   private static void apagarAluno(Connection conn) throws SQLException {
-    String sql = "delete from aluno where matricula=?";
-    //Obtém referência para uma sentença SQL.
-    PreparedStatement prepareStatement = conn.prepareStatement(sql);
-    prepareStatement.setInt(1, 1);
-    //Executa a instrução SQL.
-    prepareStatement.executeUpdate();
-    prepareStatement.close();
+        String sql = "delete from aluno where matricula=?";
+        //Obtém referência para uma sentença SQL.
+        PreparedStatement prepareStatement = conn.prepareStatement(sql);
+        prepareStatement.setInt(1, 1);
+        //Executa a instrução SQL.
+        prepareStatement.executeUpdate();
+        prepareStatement.close();
   }
 
   private static void alterarAluno(Connection conn) throws SQLException {
-    String sql = "update aluno set nome=? where matricula=?";
-    //Obtém referência para uma sentença SQL.
-    PreparedStatement prepareStatement = conn.prepareStatement(sql);
-    prepareStatement.setString(1, "Marcantônio");
-    prepareStatement.setInt(2, 1);
-    //Executa a instrução SQL.
-    prepareStatement.executeUpdate();
-    prepareStatement.close();
+        String sql = "update aluno set nome=? where matricula=?";
+        //Obtém referência para uma sentença SQL.
+        PreparedStatement prepareStatement = conn.prepareStatement(sql);
+        prepareStatement.setString(1, "Marcantônio");
+        prepareStatement.setInt(2, 1);
+        //Executa a instrução SQL.
+        prepareStatement.executeUpdate();
+        prepareStatement.close();
   }
 
   private static void incluirAluno(Connection conn) throws SQLException {
-    String sql = "insert into aluno (matricula, nome) values (?, ?)";
-    //Obtém referência para uma sentença SQL.
-    PreparedStatement prepareStatement = conn.prepareStatement(sql);
-    prepareStatement.setInt(1, 2);
-    prepareStatement.setString(2, "Maria");
-    //Executa a instrução SQL.
-    prepareStatement.executeUpdate();
-    prepareStatement.close();
+        String sql = "insert into aluno (matricula, nome) values (?, ?)";
+        //Obtém referência para uma sentença SQL.
+        PreparedStatement prepareStatement = conn.prepareStatement(sql);
+        prepareStatement.setInt(1, 2);
+        prepareStatement.setString(2, "Maria");
+        //Executa a instrução SQL.
+        prepareStatement.executeUpdate();
+        prepareStatement.close();
   }
 
   private static void criarTabelaAluno(Connection conn) throws SQLException {
-    String sql = "create table aluno (";
-    sql += "matricula int, ";
-    sql += "nome varchar(255) ";
-    sql += ")";
+        String sql = "create table aluno (";
+        sql += "matricula int, ";
+        sql += "nome varchar(255) ";
+        sql += ")";
 
     //Obtém referência para uma sentença SQL.
     PreparedStatement prepareStatement = conn.prepareStatement(sql);
-    //Executa a instrução SQL.
-    prepareStatement.executeUpdate();
-    prepareStatement.close();
+        //Executa a instrução SQL.
+        prepareStatement.executeUpdate();
+        prepareStatement.close();
   }
 }
 
