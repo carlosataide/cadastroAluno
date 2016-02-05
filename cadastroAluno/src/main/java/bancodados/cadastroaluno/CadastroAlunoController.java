@@ -29,12 +29,30 @@ public class CadastroAlunoController extends HttpServlet {
     
     String paramCpf = req.getParameter("cpf");
     String cpf = paramCpf == null ? "" : paramCpf;
+    
+    String paramEvento = req.getParameter("opcao");
+    String opcao = paramEvento == null ? "" : paramEvento;
+
 
     Aluno aluno = new Aluno();
     aluno.setMatricula(matricula);
     aluno.setNome(nome);
     aluno.setFone(fone);
     aluno.setCpf(cpf);
+    
+    if (opcao.equals("Incluir")) {
+			if (!matricula.equals("")) {
+				aluno.incluir();
+			}
+		} else if (opcao.equals("Alterar")) {
+			if (!matricula.equals("")) {
+				aluno.alterar(matricula, nome, fone, cpf);
+			}
+		} else if (opcao.equals("Excluir")) {
+			if (!matricula.equals("")) {
+				aluno.excluir(matricula);
+			}
+		}
 
     if (!matricula.equals("")) {
       aluno.incluir();
