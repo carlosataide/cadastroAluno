@@ -65,7 +65,7 @@ public class CadastroAlunoController extends HttpServlet {
 
     
     //Chamar o JSP apenas para mostrar o resultado.
-    req.getRequestDispatcher("CadastroAlunoView.jsp").forward(req, resp);
+    req.getRequestDispatcher("CadastroAluno.jsp").forward(req, resp);
   }
 
 }
