@@ -48,6 +48,9 @@
                     type="text" value="${param.cpf}">
                 </div>
                 <input type="submit" class="btn btn-sm btn-success" value="Incluir">
+                    <input type="submit" class="btn btn-sm btn-success" name="opcao" value="Alterar">
+                    <input type="submit" class="btn btn-sm btn-success" name="opcao" value="Excluir">
+                    <input type="submit" class="btn btn-sm btn-success" onclick="location.href='?'" value="Limpar">
               </fieldset>
             </form>
             <br>
