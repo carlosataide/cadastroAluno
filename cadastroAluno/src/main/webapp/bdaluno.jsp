@@ -42,7 +42,7 @@ body {
         <input type="hidden" name="op" value="run">
         <div class="col-sm-12">
           <div class="panel panel-info">
-            <div class="panel-heading">DB Client</div>
+            <div class="panel-heading">Banco de dados aluno</div>
             <div class="panel-body">
               <div class="row">
                 <div class="col-sm-4">
